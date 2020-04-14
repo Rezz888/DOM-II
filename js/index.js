@@ -55,9 +55,9 @@ mouseOver.addEventListener('mouseout', (event) =>{
  const header = document.querySelector('header');
  body.addEventListener("keydown", () => header.style.opacity = "0");
 
- header.addEventListener("mouseenter", () => {
+ header.addEventListener('mouseenter', () => {
    header.style.opacity = "1";
-   // TweenMax.to("header", 2, {rotation:360, scale:1.5});
+   
  });
 
 // 9. drag
@@ -68,7 +68,32 @@ mouseOver.addEventListener('mouseout', (event) =>{
     })
 
 // 10. load
+
 window.addEventListener("load", function(event) {
-   alert("This is to show case the 'load' event");
+   alert("This is to showcase the 'load' event");
     })
 
+// Preventing event propagation
+
+const stopEventProp = document.querySelectorAll('h4');
+stopEventProp.forEach((el)=>{
+   el.addEventListener('click', (event)=>{
+      event.stopPropagation();
+      event.target.style.color = 'dodgerblue';
+   })
+})
+
+const stopEventProp1 = document.querySelectorAll('.content-pick');
+stopEventProp1.forEach((el) =>{
+   el.addEventListener('click', ()=>{
+      el.style.backgroundColor = 'honeydew';
+   })
+})
+
+// Stop the navigation items from refreshing the page by using preventDefault()
+const stopNavHyperlink = document.querySelectorAll('.nav-link');
+stopNavHyperlink.forEach((el)=>{
+  el.addEventListener('click', (event)=>{
+     event.preventDefault();
+  })
+})
