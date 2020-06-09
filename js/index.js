@@ -3,16 +3,17 @@
 // 1. click
 const logoHeading = document.querySelector('.logo-heading');
 
-logoHeading.addEventListener('click', (event) =>{
-   if  (event.target.style.color === 'yellow') {
-       event.target.style.color = 'black';
+logoHeading.addEventListener('click', (e)=> {
+   if (e.target.style.color === 'yellow') {
+      e.target.style.color = 'black';
    } else {
-       event.target.style.color = 'yellow';
-   } 
+      e.target.style.color = 'yellow';
+   
+   }
 })
 
 // 2. mouseenter
-const headerIMG = document.querySelector('.mouseEnter');
+const headerIMG = document.querySelector('.mouse-enter');
 headerIMG.addEventListener('mouseenter', (event) =>{
    event.target.style.transform = 'scale(1.1)';
    event.target.style.transition = 'transform .7s';
@@ -21,15 +22,22 @@ headerIMG.addEventListener('mouseenter', (event) =>{
 // 3. mouseleave
 headerIMG.addEventListener('mouseleave', (event) =>{
    event.target.style.transform = 'scale(1)';
+   
 })
 
 // 4. dblclick
 const doubleClick = document.querySelector('.double-click');
 
 doubleClick.addEventListener('dblclick', (event) => {
-   event.target.parentElement.style.transform = 'rotate(360deg)';
-   event.target.parentElement.style.transition = 'transform 1s';
+   event.target.style.transform = 'rotate(360deg)';
+   event.target.style.transition = 'transform 4s';
 })
+/*This is the same example with parent element*/
+
+// doubleClick.addEventListener('dblclick', (event) => {
+//    event.target.parentElement.style.transform = 'rotate(360deg)';
+//    event.target.parentElement.style.transition = 'transform 4s';
+// })
 
 // 5. mouseover
 const mouseOver = document.querySelector('.text-content');
@@ -46,16 +54,18 @@ mouseOver.addEventListener('mouseout', (event) =>{
 
    const body = document.querySelector('body');
    body.addEventListener('wheel', function alertMeOnce(){
-   alert("WAIT!! FASTEN YOUR SEAT BELT FIRST");
+   alert("WAIT!! FASTEN YOUR SEAT BELT FIRST - wheel example");
    body.removeEventListener('wheel', alertMeOnce);
  });
 
 // 8. keydown
 
  const header = document.querySelector('header');
- body.addEventListener("keydown", () => header.style.opacity = "0");
+ document.addEventListener("keydown", (e) => {
+     header.style.opacity = "0";
+   });
 
- header.addEventListener('mouseenter', () => {
+ document.addEventListener('mouseenter', (e) => {
    header.style.opacity = "1";
    
  });
@@ -71,7 +81,8 @@ mouseOver.addEventListener('mouseout', (event) =>{
 
 window.addEventListener("load", function(event) {
    alert("This is to showcase the 'load' event");
-    })
+   
+   })
 
 // Preventing event propagation
 
@@ -97,3 +108,9 @@ stopNavHyperlink.forEach((el)=>{
      event.preventDefault();
   })
 })
+
+// Just experimenting with toggle
+function clickHandler(){
+   const body = document.querySelector('body');
+   body.classList.toggle('dark-mode');
+}

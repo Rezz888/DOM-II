@@ -179,7 +179,6 @@ img {
   height: 90px;
   background: #FFFFFF;
   border-bottom: 2px dashed #C0C0C0;
-  position: fixed;
 }
 .main-navigation .nav-container {
   height: 100%;
@@ -349,4 +348,8 @@ img {
 .home .content-pick .destination .btn:hover {
   background: #FFFFFF;
   color: #17A2B8;
+}
+.dark-mode {
+  background: black;
+  color: white;
 }
