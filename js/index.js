@@ -14,7 +14,7 @@ logoHeading.addEventListener('click', (e)=> {
 
 // 2. mouseenter
 const headerIMG = document.querySelector('.mouse-enter');
-headerIMG.addEventListener('mouseenter', (event) =>{
+headerIMG.addEventListener('mouseenter', (event) => {
    event.target.style.transform = 'scale(1.1)';
    event.target.style.transition = 'transform .7s';
 })
@@ -114,3 +114,10 @@ function clickHandler(){
    const body = document.querySelector('body');
    body.classList.toggle('dark-mode');
 }
+
+// Resize
+
+const resize = document.querySelector('.resize');
+window.addEventListener('resize', ()=>{
+   resize.src = './img/dom2photo.jpg';
+})
